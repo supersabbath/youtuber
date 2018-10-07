@@ -36,14 +36,14 @@ typealias SearchResponse = Result<[Video], YoutubeServiceError>
 
 class YoutubeSearchAPI: NSObject {
 
+    static let sharedInstance = YoutubeSearchAPI()
+
     let serialQueue = SerialDispatchQueueScheduler.init(qos: .default) // no need just show how to handle background quees
 
     func search(queryText:String) -> Observable<SearchResponse> {
 
         let stringUrl = "\(Config.youTubeApiUrl)search?part=snippet&q=\(queryText.replaceWhiteSpace(with: "+"))&type=video&maxResults=10&key=\(Config.apiKey)"
-
         guard let searchURL = URL(string: stringUrl) else { return Observable.empty() }
-
         return URLSession.shared
             .rx.response(request:  URLRequest(url: searchURL))
             .observeOn(serialQueue)
@@ -56,6 +56,27 @@ class YoutubeSearchAPI: NSObject {
                 return .success(videos)
         }
     }
+
+
+    func fetchContentDetails(for videoId:String) -> Observable<ContentDetails?> {
+
+        let contentDetailUrl =  "\(Config.youTubeApiUrl)videos?part=contentDetails&id=\(videoId)&fields=items(contentDetails(countryRestriction%2Cduration))&key=\(Config.apiKey)"
+
+        guard let videosURL = URL(string: contentDetailUrl) else { return Observable.empty() }
+
+        return URLSession.shared
+            .rx.response(request:  URLRequest(url: videosURL))
+            .observeOn(serialQueue)
+            .map{ response -> ContentDetails? in
+                guard response.response.statusCode != 403  else {
+                    return nil
+                }
+                let jsonResponse = try self.parseJSON(response.response, data: response.data) ?? [:]
+                let contentDetails =  Mapper<ContentDetails>().mapArray(JSONObject: jsonResponse["items"]) ?? []
+                return contentDetails.first
+        }
+    }
+
 
     fileprivate func parseJSON(_ httpResponse: HTTPURLResponse, data: Data) throws -> [String : Any]?  {
         if !(200 ..< 300 ~= httpResponse.statusCode) {

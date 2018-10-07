@@ -8,7 +8,7 @@
 
 import Foundation
 import ObjectMapper
-
+import RxSwift
 
 struct Video: ImmutableMappable {
 
@@ -19,6 +19,9 @@ struct Video: ImmutableMappable {
     let description:String?
     let channelTitle:String?
     let thumbNails:Thumbnails?
+    let publishedAt:String?
+    let durationVariable = Variable<String>("")
+    let disposeBag = DisposeBag()
 
     init(map: Map) throws {
 
@@ -29,7 +32,29 @@ struct Video: ImmutableMappable {
         description =  try? map.value("snippet.description")
         channelTitle = try? map.value("snippet.channelTitle")
         thumbNails = try? map.value("snippet.thumbnails.medium")
+        publishedAt = try? map.value("snippet.publishedAt")
     }
+
+    var publishedDate: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        guard let date = publishedAt else { return "" }
+        guard let yourDate = formatter.date(from: String(date.dropLast(5))) else { return "" }
+        formatter.dateFormat = "dd-MMM-yyyy"
+       return formatter.string(from: yourDate)
+    }
+
+    func getDuration(use youtubeClient:YoutubeSearchAPI)  {
+        guard let videoId = self.videoId else {
+            return
+        }
+        guard durationVariable.value.isEmpty else { return }
+        youtubeClient.fetchContentDetails(for: videoId).subscribe(onNext: { (contentDetail) in
+            guard let duration  = contentDetail?.readableDuration else { return }
+            self.durationVariable.value = duration
+        }).disposed(by: disposeBag)
+    }
+
 }
 
 public struct Thumbnails: ImmutableMappable {

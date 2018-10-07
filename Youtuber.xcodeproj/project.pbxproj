@@ -32,6 +32,12 @@
 		E1F34F052169793F00C23E4D /* VideoCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F34F042169793F00C23E4D /* VideoCollectionCell.swift */; };
 		E1F34F062169793F00C23E4D /* VideoCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F34F042169793F00C23E4D /* VideoCollectionCell.swift */; };
 		E1F34F072169793F00C23E4D /* VideoCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F34F042169793F00C23E4D /* VideoCollectionCell.swift */; };
+		E1F34F0D2169A8B700C23E4D /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F34F0C2169A8B700C23E4D /* InfoView.swift */; };
+		E1F34F0E2169A8B700C23E4D /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F34F0C2169A8B700C23E4D /* InfoView.swift */; };
+		E1F34F0F2169A8B700C23E4D /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F34F0C2169A8B700C23E4D /* InfoView.swift */; };
+		E1F34F122169BD8B00C23E4D /* ContentDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F34F112169BD8B00C23E4D /* ContentDetails.swift */; };
+		E1F34F132169BD8B00C23E4D /* ContentDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F34F112169BD8B00C23E4D /* ContentDetails.swift */; };
+		E1F34F142169BD8B00C23E4D /* ContentDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F34F112169BD8B00C23E4D /* ContentDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +85,8 @@
 		E1D1265B216923D400CD7CCD /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		E1D12660216954DB00CD7CCD /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		E1F34F042169793F00C23E4D /* VideoCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionCell.swift; sourceTree = "<group>"; };
+		E1F34F0C2169A8B700C23E4D /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		E1F34F112169BD8B00C23E4D /* ContentDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +165,7 @@
 		E1D1262221690B7600CD7CCD /* Youtuber */ = {
 			isa = PBXGroup;
 			children = (
+				E1F34F102169BD6F00C23E4D /* Models */,
 				E1F34F03216978E800C23E4D /* Views */,
 				E1F34F02216978C200C23E4D /* ViewControllers */,
 				E1D1265F216954C200CD7CCD /* Extensions */,
@@ -166,8 +175,6 @@
 				E1D1262A21690B7900CD7CCD /* Assets.xcassets */,
 				E1D1262C21690B7900CD7CCD /* LaunchScreen.storyboard */,
 				E1D1262F21690B7900CD7CCD /* Info.plist */,
-				E1D1265221691B4700CD7CCD /* Config.swift */,
-				E1D1265B216923D400CD7CCD /* Video.swift */,
 			);
 			path = Youtuber;
 			sourceTree = "<group>";
@@ -218,8 +225,19 @@
 			isa = PBXGroup;
 			children = (
 				E1F34F042169793F00C23E4D /* VideoCollectionCell.swift */,
+				E1F34F0C2169A8B700C23E4D /* InfoView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		E1F34F102169BD6F00C23E4D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E1D1265221691B4700CD7CCD /* Config.swift */,
+				E1D1265B216923D400CD7CCD /* Video.swift */,
+				E1F34F112169BD8B00C23E4D /* ContentDetails.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -446,7 +464,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1F34F0D2169A8B700C23E4D /* InfoView.swift in Sources */,
 				E1D1262621690B7700CD7CCD /* MainViewController.swift in Sources */,
+				E1F34F122169BD8B00C23E4D /* ContentDetails.swift in Sources */,
 				E1D1262421690B7600CD7CCD /* AppDelegate.swift in Sources */,
 				E1D12661216954DB00CD7CCD /* String+Utils.swift in Sources */,
 				E1D126582169201100CD7CCD /* YoutubeSearchAPI.swift in Sources */,
@@ -460,12 +480,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1F34F132169BD8B00C23E4D /* ContentDetails.swift in Sources */,
 				E1D12662216954DB00CD7CCD /* String+Utils.swift in Sources */,
 				E1F34F062169793F00C23E4D /* VideoCollectionCell.swift in Sources */,
 				E1D1263921690B7900CD7CCD /* YoutuberTests.swift in Sources */,
 				E1D1265D216923D400CD7CCD /* Video.swift in Sources */,
 				E1D126592169201100CD7CCD /* YoutubeSearchAPI.swift in Sources */,
 				E1D1265421691B4700CD7CCD /* Config.swift in Sources */,
+				E1F34F0E2169A8B700C23E4D /* InfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,12 +495,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1F34F142169BD8B00C23E4D /* ContentDetails.swift in Sources */,
 				E1D12663216954DB00CD7CCD /* String+Utils.swift in Sources */,
 				E1F34F072169793F00C23E4D /* VideoCollectionCell.swift in Sources */,
 				E1D1264421690B7900CD7CCD /* YoutuberUITests.swift in Sources */,
 				E1D1265E216923D400CD7CCD /* Video.swift in Sources */,
 				E1D1265A2169201100CD7CCD /* YoutubeSearchAPI.swift in Sources */,
 				E1D1265521691B4700CD7CCD /* Config.swift in Sources */,
+				E1F34F0F2169A8B700C23E4D /* InfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,7 +665,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GATXV325B3;
 				INFOPLIST_FILE = Youtuber/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = eu.swiftdeveloper.Youtuber;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -657,7 +684,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GATXV325B3;
 				INFOPLIST_FILE = Youtuber/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = eu.swiftdeveloper.Youtuber;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -674,7 +704,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GATXV325B3;
 				INFOPLIST_FILE = YoutuberTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = eu.swiftdeveloper.YoutuberTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -692,7 +726,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GATXV325B3;
 				INFOPLIST_FILE = YoutuberTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = eu.swiftdeveloper.YoutuberTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -709,7 +747,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GATXV325B3;
 				INFOPLIST_FILE = YoutuberUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = eu.swiftdeveloper.YoutuberUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -726,7 +768,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GATXV325B3;
 				INFOPLIST_FILE = YoutuberUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = eu.swiftdeveloper.YoutuberUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;

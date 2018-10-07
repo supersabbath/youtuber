@@ -6,7 +6,7 @@ target 'Youtuber' do
   use_frameworks!
 
   # Pods for Youtuber
-  pod "youtube-ios-player-helper"
+  pod 'youtube-ios-player-helper'
 
   #RXSwift
   pod 'RxAlamofire'

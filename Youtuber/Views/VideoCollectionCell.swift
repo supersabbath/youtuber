@@ -8,31 +8,38 @@
 
 import UIKit
 import Kingfisher
+import RxSwift
 
 class VideoCollectionCell: UICollectionViewCell {
 
     @IBOutlet var thumbnailImageView: UIImageView!
+    @IBOutlet weak var infoView: InfoView!
+
+    let bottomGradient = CAGradientLayer()
+    var disposeBag: DisposeBag?
+
     var viewModel:Video? {
         didSet {
-//            let disposeBag = DisposeBag()
-
             guard let model = viewModel else { return } // same cell
-
             thumbnailImageView.kf.setImage(with: model.thumbNails?.imageUrl)
+            infoView.titleLabel.text = model.title
+            infoView.channelTitleLabel.text = model.channelTitle
+            infoView.publishedDate.text = model.publishedDate
+
         }
     }
-    override func awakeFromNib() {
 
-        let bottomGradient = CAGradientLayer()
-        bottomGradient.frame = CGRect(x: 0, y: self.bounds.height - 60, width: self.bounds.width, height: 60)
-        bottomGradient.colors = [UIColor.clear,  UIColor.black.withAlphaComponent(0.3).cgColor, UIColor.black.withAlphaComponent(0.6).cgColor]
-        self.layer.addSublayer(bottomGradient)
+    override func awakeFromNib() {
+         bottomGradient.colors = [UIColor.clear,  UIColor.black.withAlphaComponent(0.5).cgColor, UIColor.black.withAlphaComponent(0.99).cgColor]
+    }
+     override func layoutSubviews() {
+        super.layoutSubviews()
+        bottomGradient.frame = infoView.bounds
+        self.infoView.layer.insertSublayer(bottomGradient, at: 0)
     }
 
     public override func prepareForReuse() {
         super.prepareForReuse()
-
         self.viewModel = nil
-      //  self.disposeBag = nil
     }
 }

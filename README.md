@@ -35,6 +35,4 @@ On the other side to test View Controlllers , actions , events . I think UI test
 
 ---
 
-<p align="center"> 
- ![](demo.gif)
-</p>    
+ ![](demo.gif)   

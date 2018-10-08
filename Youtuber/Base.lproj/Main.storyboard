@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -33,9 +34,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="123" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enjoy searching the youtube API 📺" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBN-4e-kmc">
+                                <rect key="frame" x="20" y="263.5" width="335" height="140"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icj-Ej-PSe">
                                 <rect key="frame" x="0.0" y="120" width="375" height="547"/>
-                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lM2-W1-Fz7">
                                     <size key="itemSize" width="375" height="177"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -64,7 +71,7 @@
                                                             <color key="shadowColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <size key="shadowOffset" width="1" height="0.0"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="published Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qs-wQ-qWd">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="published Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qs-wQ-qWd">
                                                             <rect key="frame" x="8" y="68" width="109" height="20"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -72,7 +79,7 @@
                                                             <color key="shadowColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <size key="shadowOffset" width="1" height="1"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="ChannelTitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4R1-gr-Vxt">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="ChannelTitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4R1-gr-Vxt">
                                                             <rect key="frame" x="8" y="40" width="90" height="20"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -98,7 +105,7 @@
                                                         <constraint firstItem="ZvI-Xa-g6D" firstAttribute="width" secondItem="kbv-NR-Nze" secondAttribute="width" multiplier="0.75" id="T0u-ZU-ZGq"/>
                                                         <constraint firstAttribute="trailing" secondItem="ZvI-Xa-g6D" secondAttribute="trailing" constant="20" symbolic="YES" id="Vcy-uP-2ZD"/>
                                                         <constraint firstItem="7qs-wQ-qWd" firstAttribute="leading" secondItem="4R1-gr-Vxt" secondAttribute="leading" id="WqF-r4-sVQ"/>
-                                                        <constraint firstItem="ZvI-Xa-g6D" firstAttribute="top" secondItem="kbv-NR-Nze" secondAttribute="top" constant="5" id="dhA-Pa-f4P"/>
+                                                        <constraint firstItem="ZvI-Xa-g6D" firstAttribute="top" secondItem="kbv-NR-Nze" secondAttribute="top" priority="750" constant="5" id="dhA-Pa-f4P"/>
                                                         <constraint firstItem="7qs-wQ-qWd" firstAttribute="top" secondItem="4R1-gr-Vxt" secondAttribute="bottom" constant="8" id="rhQ-2d-JAm"/>
                                                         <constraint firstItem="4R1-gr-Vxt" firstAttribute="leading" secondItem="ZvI-Xa-g6D" secondAttribute="leading" id="xAm-K6-lKD"/>
                                                         <constraint firstItem="K1N-9L-Yjw" firstAttribute="centerY" secondItem="7qs-wQ-qWd" secondAttribute="centerY" id="ytq-Zj-c4A"/>
@@ -134,7 +141,7 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="TCF-Nw-LdV">
+                            <searchBar contentMode="redraw" text="" placeholder="What do you want to watch today?" translatesAutoresizingMaskIntoConstraints="NO" id="TCF-Nw-LdV">
                                 <rect key="frame" x="0.0" y="64" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -143,10 +150,14 @@
                         <constraints>
                             <constraint firstItem="eI8-rc-rix" firstAttribute="trailing" secondItem="Icj-Ej-PSe" secondAttribute="trailing" id="3Pu-ik-ByP"/>
                             <constraint firstItem="Icj-Ej-PSe" firstAttribute="top" secondItem="TCF-Nw-LdV" secondAttribute="bottom" id="3nR-Zj-0Dy"/>
+                            <constraint firstAttribute="trailing" secondItem="wBN-4e-kmc" secondAttribute="trailing" constant="20" symbolic="YES" id="BBZ-ht-wj9"/>
                             <constraint firstItem="TCF-Nw-LdV" firstAttribute="trailing" secondItem="eI8-rc-rix" secondAttribute="trailing" id="OVv-VO-d6n"/>
+                            <constraint firstItem="wBN-4e-kmc" firstAttribute="centerX" secondItem="aMj-eP-9ME" secondAttribute="centerX" id="RkM-bG-AcP"/>
                             <constraint firstItem="TCF-Nw-LdV" firstAttribute="leading" secondItem="eI8-rc-rix" secondAttribute="leading" id="dgv-ID-qAa"/>
                             <constraint firstItem="Icj-Ej-PSe" firstAttribute="leading" secondItem="eI8-rc-rix" secondAttribute="leading" id="doA-pZ-G5W"/>
                             <constraint firstItem="Icj-Ej-PSe" firstAttribute="bottom" secondItem="eI8-rc-rix" secondAttribute="bottom" id="iYj-nc-e6k"/>
+                            <constraint firstItem="wBN-4e-kmc" firstAttribute="centerY" secondItem="aMj-eP-9ME" secondAttribute="centerY" id="oY9-q5-XAX"/>
+                            <constraint firstItem="wBN-4e-kmc" firstAttribute="leading" secondItem="aMj-eP-9ME" secondAttribute="leading" constant="20" symbolic="YES" id="rgt-o9-d1I"/>
                             <constraint firstItem="TCF-Nw-LdV" firstAttribute="top" secondItem="eI8-rc-rix" secondAttribute="top" id="sgW-Lc-GMC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eI8-rc-rix"/>
@@ -155,11 +166,43 @@
                     <connections>
                         <outlet property="collectionView" destination="Icj-Ej-PSe" id="WCV-FB-Bpx"/>
                         <outlet property="searchBar" destination="TCF-Nw-LdV" id="Bs1-Dz-v17"/>
+                        <segue destination="wwS-Ce-qoS" kind="push" identifier="player_segue" id="cz9-zO-OMw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ts-3W-jfv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="989.60000000000002" y="-342.27886056971516"/>
+        </scene>
+        <!--Youtube Player View Controller-->
+        <scene sceneID="R0D-6n-xLh">
+            <objects>
+                <viewController id="wwS-Ce-qoS" customClass="YoutubePlayerViewController" customModule="Youtuber" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iQB-b1-JiX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yRk-WP-z8D" customClass="YTPlayerView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="yRk-WP-z8D" firstAttribute="top" secondItem="iQB-b1-JiX" secondAttribute="top" id="1bo-8h-gYD"/>
+                            <constraint firstItem="yRk-WP-z8D" firstAttribute="trailing" secondItem="SVm-zP-cBJ" secondAttribute="trailing" id="2Mo-iS-cXk"/>
+                            <constraint firstItem="yRk-WP-z8D" firstAttribute="bottom" secondItem="SVm-zP-cBJ" secondAttribute="bottom" id="fow-OR-wUU"/>
+                            <constraint firstItem="yRk-WP-z8D" firstAttribute="leading" secondItem="SVm-zP-cBJ" secondAttribute="leading" id="zVD-hK-pRm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SVm-zP-cBJ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="LQy-Ys-ftF"/>
+                    <connections>
+                        <outlet property="playerView" destination="yRk-WP-z8D" id="g9M-iR-DGC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e3p-a9-nuo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1784.8" y="-306.29685157421289"/>
         </scene>
     </scenes>
 </document>

@@ -7,9 +7,7 @@ target 'Youtuber' do
 
   # Pods for Youtuber
   pod 'youtube-ios-player-helper'
-
   #RXSwift
-  pod 'RxAlamofire'
   pod 'RxSwift',    '~> 4.0'
   pod 'RxCocoa',    '~> 4.0'
   #Object Mapping
@@ -19,14 +17,16 @@ target 'Youtuber' do
 
   #Animations
   pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
+
   
   target 'YoutuberTests' do
     inherit! :search_paths
     # Pods for testing
+      pod 'RxTest'
   end
 
   target 'YoutuberUITests' do
-    inherit! :search_paths
+      #inherit! :search_paths
     # Pods for testing
   end
 

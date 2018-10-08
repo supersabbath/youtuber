@@ -44,7 +44,7 @@ struct Video: ImmutableMappable {
        return formatter.string(from: yourDate)
     }
 
-    func getDuration(use youtubeClient:YoutubeSearchAPI)  {
+    func getDuration(use youtubeClient:YoutubeSearchAPI<Config>)  {
         guard let videoId = self.videoId else {
             return
         }

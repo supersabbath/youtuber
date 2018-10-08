@@ -13,6 +13,10 @@ Place your key in the file **/Models/Config.swift**
 
 The API Key in the repository will be deactivate at any moment. 
 
+The app uses RXSwift and RXCocoa , If not familiar with them please check:
+
+[Reactive] (http://reactivex.io)
+[Marbles ] (http://rxmarbles.com)
 ---
 
 To run the app the pods must be install:

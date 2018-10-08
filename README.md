@@ -33,3 +33,4 @@ I found interesting cover complex algorithms with unit testing.  In that regard 
 
 On the other side to test View Controlllers , actions , events . I think UI testing is  easier and faster to implement. 
 
+![](demo.gif)

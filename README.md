@@ -13,11 +13,13 @@ Place your key in the file **/Models/Config.swift**
 
 The API Key in the repository will be deactivate at any moment. 
 
+---
+
 To run the app the pods must be install:
 
-    ### H3 'pod install'
+    'pod install'
 
 ---
 
-**Please** Run the test targets ( Unit test and UI test). 
+**Please** Run the test targets ( Unit test and UI test) to see the other cool stuff
 

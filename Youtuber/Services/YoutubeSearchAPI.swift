@@ -5,7 +5,6 @@
 //  Created by Fernando Cañón on 10/6/18.
 //  Copyright © 2018 Fernando Cañón. All rights reserved.
 //
-
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.URLRequest
@@ -20,41 +19,17 @@ import RxCocoa
 import ObjectMapper
 
 
-enum Result<T, E: Error>  {
-    case success(T)
-    case failure(E)
-
-}
-
-enum YoutubeServiceError: Error {
-    case offline
-    case queryLimitReached
-    case badRequest
-    case networkError
-}
-
-typealias SearchResponse = Result<[Video], YoutubeServiceError>
-
-protocol YoutubeAPI {
-
-    func search(queryText:String) -> Observable<SearchResponse>
-    func fetchContentDetails(for videoId:String) -> Observable<ContentDetails?>
-}
-
 class YoutubeSearchAPI<T:ApiConfiguration>: NSObject {
 
     let config:T
-
+    private let serialQueue = SerialDispatchQueueScheduler(qos: .default) // no need just show how to handle background quees
+    
     required init(with configuration:T){
         config = configuration
     }
-
-    let serialQueue = SerialDispatchQueueScheduler(qos: .default) // no need just show how to handle background quees
-
+    //MARK: Fuctions
     func search(queryText:String) -> Observable<SearchResponse> {
-
-        let stringUrl = "\(config.youTubeApiUrl)search?part=snippet&q=\(queryText.replaceWhiteSpace(with: "+"))&type=video&maxResults=10&key=\(config.apiKey)"
-        guard let searchURL = URL(string: stringUrl) else { return Observable.empty() }
+        guard let searchURL = searchURL(queryText: queryText) else { return Observable.empty() }
         return URLSession.shared
             .rx.response(request:  URLRequest(url: searchURL))
             .observeOn(serialQueue)
@@ -71,13 +46,8 @@ class YoutubeSearchAPI<T:ApiConfiguration>: NSObject {
             }
     }
 
-
     func fetchContentDetails(for videoId:String) -> Observable<ContentDetails?> {
-
-        let contentDetailUrl =  "\(config.youTubeApiUrl)videos?part=contentDetails&id=\(videoId)&fields=items(contentDetails(countryRestriction%2Cduration))&key=\(config.apiKey)"
-
-        guard let videosURL = URL(string: contentDetailUrl) else { return Observable.empty() }
-
+        guard let videosURL = contentDetailsURL(videoId: videoId) else { return Observable.empty() }
         return URLSession.shared
             .rx.response(request:  URLRequest(url: videosURL))
             .observeOn(serialQueue)
@@ -91,11 +61,25 @@ class YoutubeSearchAPI<T:ApiConfiguration>: NSObject {
         }
     }
 
-
     fileprivate func parseJSON(_ httpResponse: HTTPURLResponse, data: Data) throws -> [String : Any]?  {
         if !(200 ..< 300 ~= httpResponse.statusCode) {
             throw YoutubeServiceError.networkError
         }
         return try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
+    }
+}
+
+//MARK: URL Generation
+extension YoutubeSearchAPI {
+
+    fileprivate func searchURL( queryText:String) -> URL? {
+        let formatedQuery = queryText.replaceWhiteSpace(with: "+")
+        let stringUrl = "\(config.youTubeApiUrl)search?part=snippet&q=\(formatedQuery)&type=video&maxResults=10&key=\(config.apiKey)"
+        return URL(string: stringUrl)
+    }
+
+    fileprivate func contentDetailsURL(videoId:String) -> URL? {
+        let contentDetailUrl = "\(config.youTubeApiUrl)videos?part=contentDetails&id=\(videoId)&fields=items(contentDetails(countryRestriction%2Cduration))&key=\(config.apiKey)"
+        return URL(string: contentDetailUrl)
     }
 }

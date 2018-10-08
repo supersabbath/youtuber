@@ -14,10 +14,8 @@ class VideoCollectionCell: UICollectionViewCell {
 
     @IBOutlet var thumbnailImageView: UIImageView!
     @IBOutlet weak var infoView: InfoView!
-
     let bottomGradient = CAGradientLayer()
     var disposeBag: DisposeBag?
-
     var viewModel:Video? {
         didSet {
             guard let model = viewModel else { return } // same cell
@@ -34,7 +32,8 @@ class VideoCollectionCell: UICollectionViewCell {
         bottomGradient.colors = [UIColor.clear,  UIColor.black.withAlphaComponent(0.5).cgColor, UIColor.black.withAlphaComponent(0.99).cgColor]
         bottomGradient.cornerRadius = 20
     }
-     override func layoutSubviews() {
+
+    override func layoutSubviews() {
         super.layoutSubviews()
         bottomGradient.frame = infoView.bounds
         self.infoView.layer.insertSublayer(bottomGradient, at: 0)

@@ -3,7 +3,7 @@ A simple Youtube videos consumer iOS app
 
 This app implements a client for consulting the Youtube  search API V3.  
 
-The app requires an Google developer API KEY.  
+The app requires a Google developer API KEY.  
 
 [Google Console]  (https://console.developers.google.com/apis/)
 
@@ -21,5 +21,10 @@ To run the app the pods must be install:
 
 ---
 
-**Please** Run the test targets ( Unit test and UI test) to see the other cool stuff
+**Please** Run the test targets ( Unit test and UI test) to see the other cool stuff. 
+
+Regarding testing , my approach is to use unit testing for code where you have to compute or maniputate data. For instance:
+I found interesting cover complex algorithms with unit testing.  In that regard using proctocols , generics and dependency injection is a must.  
+
+On the other side to test View Controlllers , actions , events . I think UI testing is  easier and faster to implement. 
 

@@ -16,6 +16,10 @@
 		E13014C4216AEB600027C9BB /* NavigationBar+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13014C3216AEB600027C9BB /* NavigationBar+Error.swift */; };
 		E13014C6216B06F90027C9BB /* YoutubeServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13014C5216B06F90027C9BB /* YoutubeServiceError.swift */; };
 		E13014C8216B08300027C9BB /* YoutubeAPIComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13014C7216B08300027C9BB /* YoutubeAPIComponents.swift */; };
+		E13014C9216B0B6B0027C9BB /* YoutubeServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13014C5216B06F90027C9BB /* YoutubeServiceError.swift */; };
+		E13014CA216B0B6C0027C9BB /* YoutubeServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13014C5216B06F90027C9BB /* YoutubeServiceError.swift */; };
+		E13014CB216B0B6F0027C9BB /* YoutubeAPIComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13014C7216B08300027C9BB /* YoutubeAPIComponents.swift */; };
+		E13014CC216B0B700027C9BB /* YoutubeAPIComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13014C7216B08300027C9BB /* YoutubeAPIComponents.swift */; };
 		E1D1262421690B7600CD7CCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D1262321690B7600CD7CCD /* AppDelegate.swift */; };
 		E1D1262621690B7700CD7CCD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D1262521690B7700CD7CCD /* MainViewController.swift */; };
 		E1D1262921690B7700CD7CCD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1D1262721690B7700CD7CCD /* Main.storyboard */; };
@@ -553,8 +557,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E13014CB216B0B6F0027C9BB /* YoutubeAPIComponents.swift in Sources */,
 				E1F34F132169BD8B00C23E4D /* ContentDetails.swift in Sources */,
 				E1D12662216954DB00CD7CCD /* String+Utils.swift in Sources */,
+				E13014C9216B0B6B0027C9BB /* YoutubeServiceError.swift in Sources */,
 				E1F34F062169793F00C23E4D /* VideoCollectionCell.swift in Sources */,
 				E1D1263921690B7900CD7CCD /* YoutuberTests.swift in Sources */,
 				E1D1265D216923D400CD7CCD /* Video.swift in Sources */,
@@ -569,7 +575,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1F34F142169BD8B00C23E4D /* ContentDetails.swift in Sources */,
+				E13014CC216B0B700027C9BB /* YoutubeAPIComponents.swift in Sources */,
 				E1D12663216954DB00CD7CCD /* String+Utils.swift in Sources */,
+				E13014CA216B0B6C0027C9BB /* YoutubeServiceError.swift in Sources */,
 				E13014C0216A87850027C9BB /* MainPage.swift in Sources */,
 				E1F34F072169793F00C23E4D /* VideoCollectionCell.swift in Sources */,
 				E1D1264421690B7900CD7CCD /* YoutuberUITests.swift in Sources */,

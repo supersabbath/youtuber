@@ -17,16 +17,7 @@ import ObjectMapper
 class YoutuberTests: XCTestCase {
 
     let sut = YoutubeSearchAPI(with: MockConfig()) // Subject Under Test
-    let sut2 = MainViewController.init(nibName: "", bundle: nil)// Subject Under Test
-    var scheduler: TestScheduler!
     var disposeBag = DisposeBag()
-
-    override func setUp() {
-        self.scheduler = TestScheduler(initialClock: 0)
-    }
-
-    override func tearDown() {
-    }
     /**
          This just a simple example on how I will test the YoutubeSearchAPI service. I know it's not correct to do unit
         test using a real connection to the server, but for the task at hand , I think its enough to show how I would have
@@ -41,7 +32,7 @@ class YoutuberTests: XCTestCase {
             switch searchResult {
                 case .failure(let error):
                     XCTAssertEqual(error, YoutubeServiceError.badRequest)
-                case .success(let videos):
+            case .success(let _):
                     XCTFail()
             }
             exp.fulfill()
@@ -52,10 +43,8 @@ class YoutuberTests: XCTestCase {
         }
     }
 
-
     func testGetContentDetails_40x_error() {
         let exp = self.expectation(description: "testGetContentDetails_40x_error")
-
         sut.fetchContentDetails(for: "noid").subscribe { (event) in
             switch event{
                 case .error(let error):

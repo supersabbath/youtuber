@@ -12,13 +12,12 @@ import ObjectMapper
 struct ContentDetails:ImmutableMappable {
     
     let duration:String?
-
-    init(map: Map) throws {
-        duration = try? map.value("contentDetails.duration")
-    }
-
     var readableDuration:String {
         guard let d = duration?.lowercased() else {  return "" }
         return "Duration:"  + String(d.dropFirst(2)).replacingOccurrences(of: "m", with: "min ")
+    }
+
+    init(map: Map) throws {
+        duration = try? map.value("contentDetails.duration")
     }
 }

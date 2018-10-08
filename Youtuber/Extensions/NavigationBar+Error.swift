@@ -5,8 +5,6 @@
 //  Created by Fernando Cañón on 10/7/18.
 //  Copyright © 2018 Fernando Cañón. All rights reserved.
 //
-
-
 import UIKit.UINavigationBar
 import RxSwift
 import RxCocoa

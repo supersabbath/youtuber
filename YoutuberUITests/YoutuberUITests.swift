@@ -16,11 +16,11 @@ class YoutuberUITests: XCTestCase {
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     /**
-        This UI test shows how to test the UI, I use PageModeObject design pattenr, it is useful to create reusables
-        XCUIElement for each viewcontroller. The Idea is to map each UI Element in de VC to a Page element. 
+        I use PageModeObject (POM) design pattern, it is helpful to create reusables elements
+        (XCUIElement) for each viewcontroller. The Idea is to map each UI Element in de VC to a Page element.
+        https://www.pluralsight.com/guides/getting-started-with-page-object-pattern-for-your-selenium-tests
      */
     func testLauncPlayer()  {
         let app = XCUIApplication()
@@ -52,7 +52,7 @@ class YoutuberUITests: XCTestCase {
         mainViewControllerPage.collectionViewCells.swipeUp()
 
         // Test that we had 10 cells as requested in the requirements
-        XCTAssertGreaterThan(app.collectionViews.children(matching: .cell).count, 3, " There should more than 3 cells" )
+        XCTAssertGreaterThan(app.collectionViews.children(matching: .cell).count, 2, " There should more than 3 cells" )
     }
 }
 

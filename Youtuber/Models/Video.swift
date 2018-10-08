@@ -54,23 +54,21 @@ struct Video: ImmutableMappable {
             self.durationVariable.value = duration
         }).disposed(by: disposeBag)
     }
-
 }
 
 public struct Thumbnails: ImmutableMappable {
-
+    
     let url:String?
     let width:UInt
     let height:UInt
-
+    var imageUrl : URL? {
+        guard url != nil else { return nil }
+        return URL(string: url!)
+    }
+    
     public init(map: Map) throws {
         url = try? map.value("url")
         height = try map.value("height")
         width = try map.value("width")
-    }
-
-    var imageUrl : URL? {
-        guard url != nil else { return nil }
-        return URL(string: url!)
     }
 }

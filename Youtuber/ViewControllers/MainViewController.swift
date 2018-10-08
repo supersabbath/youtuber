@@ -25,6 +25,7 @@ class MainViewController: UIViewController {
             }.asObserver()
     }
     let disposeBag = DisposeBag()
+
     // MARK: ViewController lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +54,6 @@ class MainViewController: UIViewController {
 
     // MARK: Rx Components
     func setupRXSearchBar() -> Observable<[Video]> {
-
         let searchResult = searchBar.rx.text.orEmpty
             .debounce(0.5, scheduler: MainScheduler.instance)
             .distinctUntilChanged()
@@ -80,12 +80,10 @@ class MainViewController: UIViewController {
                          searchBar.rx.searchButtonClicked.asObservable())
             .bind(to: resignKeyboard)
             .disposed(by: disposeBag)
-
         return searchResult
     }
 
     func setupRXCollectionView( searchResults: Observable<[Video]> ){
-        
         searchResults.catchErrorJustReturn([])
             .bind(to:  self.collectionView.rx.items(cellIdentifier: "cell_id" , cellType:VideoCollectionCell.self)) { (_ , model, cell) in
                 model.getDuration(use: self.searchServices)

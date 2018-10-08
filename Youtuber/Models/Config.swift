@@ -13,7 +13,6 @@ protocol ApiConfiguration {
     var apiKey:String { get }
 }
 
-
 struct Config: ApiConfiguration {
     let youTubeApiUrl = "https://www.googleapis.com/youtube/v3/"
     let apiKey = "AIzaSyCjy9QR_qrVUh3CVb5j1CKcruLXjQ2gnoU"
